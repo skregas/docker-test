@@ -6,3 +6,13 @@ services:
 script:
     - docker build -t ksngstr/node .
     - docker images ksngstr/node
+
+before_deploy:
+    # DOCKER credentials, NOT github!!
+    - docker login -u $docker-hub-username -p $docker-hub-pass
+    
+deploy:
+    provider: script
+    script: docker push ksngstr/node
+    on:
+        branch: master
