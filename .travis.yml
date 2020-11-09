@@ -9,7 +9,7 @@ script:
 
 before_deploy:
     # DOCKER credentials, NOT github!!
-    - docker login -u $docker-hub-username -p $docker-hub-pass
+    - docker login -u ksngstr -p $DOCKERHUB_PASS
     
 deploy:
     provider: script
